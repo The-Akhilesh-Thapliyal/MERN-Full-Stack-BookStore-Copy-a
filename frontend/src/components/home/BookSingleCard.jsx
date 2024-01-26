@@ -17,7 +17,7 @@ const BookSingleCard = ({ book }) => {
       </h2>
       <div className="flex justify-center items-center gap-x-2">
         <img
-          src={book.imageUrl} // Use the imageUrl property
+          src={book.imageUrl}
           alt={book.title}
           className="max-h-40 max-w-40 object-cover rounded-lg"
         />

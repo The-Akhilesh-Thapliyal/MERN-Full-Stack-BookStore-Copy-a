@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Spinner from "../components/Spinner";
 import { Link } from "react-router-dom";
-import { AiOutlineEdit } from "react-icons/ai";
-import { BsInfoCircle } from "react-icons/bs";
-import { MdOutlineAddBox, MdOutlineDelete } from "react-icons/md";
+import { MdOutlineAddBox } from "react-icons/md";
 import { HiOutlineViewList, HiOutlineViewGrid } from "react-icons/hi";
 import BooksTable from "../components/home/BooksTable";
 import BooksCard from "../components/home/BooksCard";
@@ -12,12 +10,12 @@ import BooksCard from "../components/home/BooksCard";
 const Home = () => {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [showType, setShowType] = useState("table");
+  const [showType, setShowType] = useState("card");
 
   useEffect(() => {
     setLoading(true);
     axios
-      .get("http://localhost:5555/books")
+      .get(`${window.location.origin}/books`)
       .then((response) => {
         setBooks(response.data.data);
         setLoading(false);
@@ -47,7 +45,7 @@ const Home = () => {
         </button>
       </div>
       <div className="flex justify-between items-center">
-        <h1 className="text-3xl my-8 text-center text-gray-300">Books List</h1>
+        <h1 className="text-3xl my-8 text-center text-gray-300">Books</h1>
         <Link to="/books/create">
           <MdOutlineAddBox className="text-sky-300 text-4xl" />
         </Link>
